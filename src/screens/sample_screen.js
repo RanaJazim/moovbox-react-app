@@ -1,16 +1,15 @@
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-class SampleScreen extends React.Component {
-    state = { age: 19 };
+export default function SampleScreen() {
 
-    render() {
-        console.log(this.props);
-        return (
-            <div>
-                <p>Sampele Screen</p>
-            </div>
-        );
-    }
+    const notify = () => toast("Wow so easy !");
+
+    return (
+        <div>
+            <button onClick={notify}>Notify !</button>
+            <ToastContainer />
+        </div>
+    );
 }
-export default SampleScreen;

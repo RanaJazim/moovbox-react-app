@@ -1,10 +1,10 @@
 import React from 'react'
-import * as Yup from 'yup';
 import { AppForm, AppInput, SubmitButton, FormCard } from '../components/form';
+import { loginSchema } from "../utils/schemas_validation";
 
 export default function LoginScreen() {
-    const handleSubmitForm = async (data) => {
-        console.log(data);
+    const handleSubmitForm = async (values) => {
+        console.log(values);
     }
 
     return (
@@ -31,12 +31,3 @@ export default function LoginScreen() {
         </FormCard>
     )
 }
-
-const loginSchema = Yup.object().shape({
-    email: Yup.string()
-        .email('Invalid email')
-        .required('Required'),
-    password: Yup.string()
-        .min(8, "Too short. Min length is 8 character")
-        .required("Required"),
-});
