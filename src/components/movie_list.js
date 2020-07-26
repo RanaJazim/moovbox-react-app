@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import useApi from '../hooks/use_api'
 import movieApi from '../services/movie_service';
 import MovieCard from './movie_card';
+import SwitchComponent from './switch_component';
 
 export default function MovieList() {
     const { data: movieCategories, isLoading, request: loadMovies } = useApi(movieApi.fetchAllMovies);
@@ -12,15 +13,21 @@ export default function MovieList() {
 
     return (
         <div>
-            {movieCategories.map((category) => (
-                <div
-                    className="mt-2"
-                    key={category.title}
-                >
-                    <h3>{category.title} Movies</h3>
-                    <CategoryMovies movies={category.movies} />
-                </div>
-            ))}
+            <SwitchComponent
+                isLoading={isLoading}
+                Loading={<p>Fetching movies ...</p>}
+                Render={
+                    movieCategories.map((category) => (
+                        <div
+                            className="mt-2"
+                            key={category.title}
+                        >
+                            <h3>{category.title} Movies</h3>
+                            <CategoryMovies movies={category.movies} />
+                        </div>
+                    ))
+                }
+            />
         </div>
     )
 }
