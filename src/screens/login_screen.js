@@ -2,8 +2,11 @@ import React from 'react'
 import * as Yup from 'yup';
 import { AppForm, AppInput, SubmitButton, FormCard } from '../components/form';
 
-
 export default function LoginScreen() {
+    const handleSubmitForm = async (data) => {
+        console.log(data);
+    }
+
     return (
         <FormCard
             title="Login"
@@ -11,6 +14,8 @@ export default function LoginScreen() {
             <AppForm
                 initialValues={{ email: '', password: '' }}
                 validations={loginSchema}
+                onSubmitForm={handleSubmitForm}
+                SubmitComponent={<SubmitButton title="Login" />}
             >
                 <AppInput
                     label="Email"
@@ -23,7 +28,6 @@ export default function LoginScreen() {
                     type="password"
                 />
             </AppForm>
-            <SubmitButton title="Login" />
         </FormCard>
     )
 }
