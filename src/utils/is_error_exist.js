@@ -1,0 +1,1 @@
+export const isErrorExist = (error) => !(Object.keys(error).length === 0 && error.constructor === Object);

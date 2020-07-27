@@ -5,7 +5,11 @@ import MovieCard from './movie_card';
 import SwitchComponent from './switch_component';
 
 export default function MovieList() {
-    const { data: movieCategories, isLoading, request: loadMovies } = useApi(movieApi.fetchAllMovies);
+    const {
+        data: movieCategories,
+        isLoading,
+        request: loadMovies
+    } = useApi(movieApi.fetchAllMovies);
 
     useEffect(() => {
         loadMovies();

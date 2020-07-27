@@ -5,7 +5,11 @@ import useApi from '../../hooks/use_api';
 import SwitchComponent from '../switch_component';
 
 export default function GenreList() {
-    const { data: genres, isLoading, request: loadGenres } = useApi(genreApi.fetchAllGenres);
+    const {
+        data: genres,
+        isLoading,
+        request: loadGenres
+    } = useApi(genreApi.fetchAllGenres);
 
     useEffect(() => {
         loadGenres();

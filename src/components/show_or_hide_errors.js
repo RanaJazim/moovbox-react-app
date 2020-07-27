@@ -1,5 +1,6 @@
 import React from 'react'
+import { isErrorExist } from '../utils/is_error_exist';
 
 export default function ShowOrHideErrors({ error, Errors, ...props }) {
-    return !(Object.keys(error).length === 0 && error.constructor === Object) && <div {...props}>{Errors}</div>;
+    return isErrorExist(error) && <div {...props}>{Errors}</div>;
 }

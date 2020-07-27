@@ -11,7 +11,7 @@ export default function Errors({ error }) {
             <ul className="container alert alert-danger">
                 {isArray() ? <ErrorList errors={errors} /> : <SingleError error={errors} />}
             </ul>
-            <PushNotification errMsg={`Error Status: ${error.status}`} />
+            <PushNotification msg={`Error Status: ${error.status}`} />
         </>
     )
 }

@@ -6,9 +6,16 @@ import useApi from '../hooks/use_api';
 import ShowOrHideErrors from '../components/show_or_hide_errors';
 import Errors from '../components/errors';
 import SwitchComponent from '../components/switch_component';
+import PushNotification from '../components/push_notification';
+
 
 export default function RegisterScreen() {
-    const { data, error, isLoading, request: register } = useApi(userApi.register);
+    const {
+        isError,
+        error,
+        isLoading,
+        request: register
+    } = useApi(userApi.register);
 
     const handleSubmitForm = async (formData) => {
         await register(formData);
@@ -21,6 +28,7 @@ export default function RegisterScreen() {
                 error={error}
                 Errors={<Errors error={error} />}
             />
+            {!isError && <PushNotification msg="Successfully register the user" type="success" />}
             <FormCard title="Register">
                 <AppForm
                     initialValues={{ name: '', email: '', password: '', password_confirmation: '' }}
