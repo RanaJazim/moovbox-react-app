@@ -1,6 +1,5 @@
 import React from 'react'
 import { Formik } from 'formik';
-import SubmitButton from './submit_button';
 import ResetButton from '../reset_button';
 
 export default function AppForm(
@@ -16,9 +15,8 @@ export default function AppForm(
         <Formik
             initialValues={initialValues}
             validationSchema={validations}
-            onSubmit={(values, { resetForm, isValid }) => {
+            onSubmit={(values, { resetForm, dirty, isValid }) => {
                 onSubmitForm(values);
-                if (isValid) resetForm();
             }}
         >
             {() => (

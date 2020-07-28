@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import './index.css';
 import { base_URL } from './services/base';
 import SampleScreen from './screens/sample_screen';
+import SampleRegisterScreen from './screens/sample_register_screen';
 
 
 ReactDOM.render(
