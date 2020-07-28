@@ -32,7 +32,6 @@ export default function RegisterScreen() {
                 error={isError}
                 Errors={<Errors error={error} />}
             />
-            <ToastContainer />
             <FormCard title="Register">
                 <AppForm
                     initialValues={{ name: '', email: '', password: '', password_confirmation: '' }}

@@ -8,12 +8,16 @@ import './index.css';
 import { base_URL } from './services/base';
 import SampleScreen from './screens/sample_screen';
 import SampleRegisterScreen from './screens/sample_register_screen';
+import { ToastContainer } from 'react-toastify';
 
 
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <App />
+      <>
+        <ToastContainer />
+        <App />
+      </>
     </React.StrictMode>
   </BrowserRouter>,
   document.getElementById('root')
